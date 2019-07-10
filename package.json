@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "dependencies": {
+    "bulma": "^0.7.5",
+    "bulma-calendar": "^6.0.7",
     "national-rail-darwin": "^1.0.8",
     "node": "^12.6.0",
     "request": "^2.88.0",
