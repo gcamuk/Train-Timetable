@@ -15,5 +15,13 @@
   },
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gcamuk/Train-Timetable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gcamuk/Train-Timetable/issues"
+  },
+  "homepage": "https://github.com/gcamuk/Train-Timetable#readme",
   "description": ""
 }
