@@ -4,6 +4,8 @@
   "main": "app.js",
   "dependencies": {
     "express": "^4.17.1",
+    "bulma": "^0.7.5",
+    "bulma-calendar": "^6.0.7",
     "national-rail-darwin": "^1.0.8",
     "node": "^12.6.0",
     "request": "^2.88.0",
@@ -16,5 +18,13 @@
   },
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gcamuk/Train-Timetable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gcamuk/Train-Timetable/issues"
+  },
+  "homepage": "https://github.com/gcamuk/Train-Timetable#readme",
   "description": ""
 }
