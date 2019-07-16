@@ -9,7 +9,14 @@ const getJourneyTime = (start, end) => {
     let dt1 = new Date(start)
     let dt2 = new Date(end)
 
-    console.log(`start ${start} end = ${end} dt1=${dt1} dt2=${dt2}`)
+    let seconds = (dt2.getTime()-dt1.getTime())/1000 //into secs
+    let hours = parseInt(seconds/3600)
+    seconds = seconds%3600
+    let minutes = parseInt (seconds/60)
+    seconds = seconds%60
+    
+    console.log(`start ${start} end = ${end} hours = ${hours} sec = ${seconds} min = ${minutes}`)
+    if (minutes < 10) {return(`${hours}:0${minutes}`)} else {return (`${hours}:${minutes}`)}
 }
 
 const myFunction = () => {
@@ -22,8 +29,13 @@ const myFunction = () => {
     fetch(`http://transportapi.com/v3/uk/train/station/${from}/${date}/${time}/timetable.json?app_id=${app_id}&app_key=${app_key}&destination=${to}`)
     .then(response => {response.json()
     .then(data => {
-    if (data.error) {
+        console.log(`bruce is late`)
+
+        console.log(`error ${data.departures.all[0].train_uid} ${data.error}`)
+    if (data.error || !data.departures.all[0].train_uid) {
+        console.log('error')
         messageOne.textContent = data.error
+        // return (messageOne.textContent = "No services bewtween your chosen stations")
     } else {
 
         let trainUID = data.departures.all[0].train_uid
@@ -32,16 +44,16 @@ const myFunction = () => {
         .then(response => {response.json()
         .then(data => {
             if (data.error) {
-                messageOne.textContent = data.error
+                return (messageOne.textContent = data.error)
             } else {
                 let finalDestination = data.stops.length-1
-                let journeyTime = getJourneyTime(data.stops[0].aimed_departure_time, data.stops[finalDestination].aimed_arrival_time)
+                let journeyTime = getJourneyTime(`${date} ${data.stops[0].aimed_departure_time}`, `${date} ${data.stops[finalDestination].aimed_arrival_time}`)
 
-                messageOne.textContent = data.origin_name
+                messageOne.textContent = data.stops[0].station_name
                 messageTwo.textContent = data.stops[0].aimed_departure_time
                 messageThree.textContent = data.destination_name
                 messageFour.textContent = data.stops[finalDestination].aimed_arrival_time
-                messageFive.textContent = "Journey Time"
+                messageFive.textContent = journeyTime
                 messageSix.textContent = "Fare"
                 console.log(`from = ${from} to = ${to} depart = ${data.stops[0].aimed_departure_time} arrive = ${data.stops[finalDestination].aimed_arrival_time}`)  
             } //end else
