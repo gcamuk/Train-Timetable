@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Train Timetables</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <link href="./node_modules/bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet"> 
-   
+    <link href="~bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet">
+    <script src="./calender.js"></script>    
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <script src="~bulma-calendar/dist/js/bulma-calendar.min.js"></script>           
+    <title>Train Timetables</title>
 </head>
+
 <body>
 
     <!-- <div class="field">
@@ -23,15 +26,14 @@
     <section class="section">
         <div class="container">
 
-            <form id="myForm" method="get" enctype="application/json">
-                <div class="columns">
+            <div class="columns">
 
-            <div class="column dropsearch">
+            <div class="column">
                     <!-- <div class="field"> -->
-                <p class="subtitle is-5 search-head"><strong>Departing from?</strong></p>
+                <p class="subtitle is-5"><strong>Departing from?</strong></p>
                 <div class="control">
                     <div class="select">
-                        <select name="depart-station" id="dep-station">
+                        <select>
                             <option>Select your station</option>
                             <option value=" ABW	"> Abbey Wood </option>
                             <option value="	ABE	"> Aber </option>
@@ -2610,16 +2612,16 @@
         </div>
 
         <div id="calender" class="column">
-                <label class="subtitle is-7 search-head"><strong>Time:</strong></label>
+                <label class="subtitle is-7"><strong>Time:</strong></label>
                 <input type="time">
         
-                <label class="subtitle is-7 search-head"><strong>Date:</strong></label>
+                <label class="subtitle is-7"><strong>Date:</strong></label>
                 <input type="date">
         </div>
 
-        <div class="column dropsearch">
+        <div class="column">
             <!-- <div class="field"> -->
-                <p class="subtitle is-5 search-head"><strong>Arriving at?</strong></p>
+                <p class="subtitle is-5"><strong>Arriving at?</strong></p>
                 <div class="control">
                     <div class="select">
                         <select>
@@ -5201,50 +5203,23 @@
         </div>
 
 
-        <div id="calender" class="column">
-            <label class="subtitle is-7 search-head"><strong>Time:</strong></label>
-            <input type="time">
+<div id="calender" class="column">
+        <label class="subtitle is-7"><strong>Time:</strong></label>
+        <input type="time">
 
-            <label class="subtitle is-7 search-head"><strong>Date:</strong></label>
-            <input type="date">
+        <label class="subtitle is-7"><strong>Date:</strong></label>
+        <input type="date">
+</div>
+
+
+
         </div>
 
-        <br>
-
-        <a class="button is-hovered submit is-outlined" type="submit"><span class="icon is-small buttonicon"><i class="fas fa-train"></i></span>Search Trains</a>
-        
-
-
-
-                </div>
-            </form>
-            <!-- END OF FORM -->
-        </div>
+    </div>
          <!-- END OF CONTAINER -->
-    </section>
-    <form id="myform">
-        <p>From:</p>
-        <input id="fromInput" type="text"></input>
-        <!-- <button id="fromButton">From</button> -->
-        <p>To:</p>
-        <input id="toInput" type="text"></input>
-        <!-- <button id="toButton">To</button> -->
-        <p>Date:</p>
-        <input id="dateInput" type="text"></input>
-        <!-- <button id="dateButton">Date</button> -->
-        <p>Time:</p>
-        <input id="timeInput" type="text"></input>
-        <button id="findButton">Find</button>
-    
-        <p id="messageOne">Departure Time</p>
-        <p id="messageTwo">Arrival Time</p>
-    </form>
-    
-    <script src="./node_modules/bulma-calendar/dist/js/bulma-calendar.min.js"></script>           
+        </section>
 
-    <script src="./calender.js"></script> 
-    <script src="./public/index.js"></script>      
-
-    <script src="./index.js"></script>
+        
 </body>
+
 </html>
