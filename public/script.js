@@ -50,21 +50,18 @@ console.log(`I'm client side JS`)
 const app_id = '10385ce7'
 const app_key = 'ff792051ed6e223340b30d3b25173108'
 
-let depStation = document.getElementById('fromInput')
-let fromButton = document.getElementById('fromButton')
-let toInput = document.getElementById('toInput')
-let toButton = document.getElementById('toButton')
-let findButton = document.getElementById('findButton')
+let from = document.getElementById('depStation')
+let to = document.getElementById('ariStation')
+let date = document.getElementById('depDate')
+let time = document.getElementById('depTime')
 
-findButton.addEventListener("click", (e) => {
-    e.preventDefault(); //or resets the form before the vlaues are passed!
+const myFunction = () => {
+    //or resets the form before the vlaues are passed!
 
-    let from = fromInput.value
-    let to = toInput.value
-    let date = dateInput.value
-    let time = timeInput.value
-
-
+    let from = depStation.value
+    let to = ariStation.value
+    let date = depDate.value
+    let time = depTime.value
 
     fetch(`http://transportapi.com/v3/uk/train/station/${from}/${date}/${time}/timetable.json?app_id=${app_id}&app_key=${app_key}&destination=${to}`)
     .then(response => {response.json()
@@ -77,7 +74,22 @@ findButton.addEventListener("click", (e) => {
         console.log(data)
     }
 })})
-})
+}
+
+
+
+//     fetch(`http://transportapi.com/v3/uk/train/station/${from}/${date}/${time}/timetable.json?app_id=${app_id}&app_key=${app_key}&destination=${to}`)
+//     .then(response => {response.json()
+//     .then(data => {
+//     if (data.error) {
+//         messageOne.textContent = data.error
+//     } else {
+//         messageOne.textContent = data.departures.all[0].aimed_departure_time
+//         messageTwo.textContent = data.departures.all[0].aimed_arrival_time
+//         console.log(data)
+//     }
+// })})
+
 
 
 // for runningh in browser to see json
