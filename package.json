@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "main": "app.js",
   "dependencies": {
-    "express": "^4.17.1",
     "bulma": "^0.7.5",
     "bulma-calendar": "^6.0.7",
+    "express": "^4.17.1",
     "national-rail-darwin": "^1.0.8",
     "node": "^12.6.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
+    "require": "^2.4.20",
     "rp": "^0.2.0"
   },
   "devDependencies": {},
