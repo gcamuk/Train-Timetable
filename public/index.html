@@ -2605,7 +2605,7 @@
         <div id="calender" class="column">
                 <!-- <div class="field"> -->
                 <label class="subtitle is-7 search-head"><strong>Time:</strong></label>
-                <input type="time">
+                <input type="time" id="depTime">
         
                 <label class="subtitle is-7 search-head"><strong>Date:</strong></label>
                 <input type="date" id="depDate">
@@ -2617,7 +2617,7 @@
                 <p class="subtitle is-5 search-head"><strong>Arriving at?</strong></p>
                 <div class="control">
                     <div class="select">
-                        <select>
+                        <select id="ariStation">
                             <option>Select your station</option>
                             <option value=" ABW	"> Abbey Wood </option>
                             <option value="	ABE	"> Aber </option>
@@ -5217,6 +5217,9 @@
 
                 </div>
             </form>
+
+            <p id="messageOne"></p>
+            <p id="messageTwo"></p>
             <!-- END OF FORM -->
         </div>
          <!-- END OF CONTAINER -->
@@ -5224,34 +5227,33 @@
 
 
     <!-- <script src="../calender.js"></script>  -->
-    <script src="../public/index.js"></script>    
+
+    <!-- <script src="./calender.js"></script>  -->
+    
+
+
+    <script src="./script.js"></script>
+
 
 </body>
 
-    <form id="myform">
+    <!-- <form id="myform">
         <p>From:</p>
-        <input id="fromInput" type="text"></input>
+        <input id="fromInput" type="text"></input> -->
         <!-- <button id="fromButton">From</button> -->
-        <p>To:</p>
-        <input id="toInput" type="text"></input>
+        <!-- <p>To:</p>
+        <input id="toInput" type="text"></input> -->
         <!-- <button id="toButton">To</button> -->
-        <p>Date:</p>
-        <input id="dateInput" type="text"></input>
+        <!-- <p>Date:</p>
+        <input id="dateInput" type="text"></input> -->
         <!-- <button id="dateButton">Date</button> -->
-        <p>Time:</p>
+        <!-- <p>Time:</p>
         <input id="timeInput" type="text"></input>
         <button id="findButton">Find</button>
     
         <p id="messageOne">Departure Time</p>
         <p id="messageTwo">Arrival Time</p>
-    </form>
+    </form> -->
     
-    <script src="./node_modules/bulma-calendar/dist/js/bulma-calendar.min.js"></script>           
-
-    <script src="./calender.js"></script> 
-    <script src="./public/index.js"></script>      
-
-
-    <script src="./public/script.js"></script>
-</body>
+   
 </html>
