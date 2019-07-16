@@ -92,22 +92,7 @@ const myFunction = () => {
 }//end myFunction
 
 
-        //get train UID
-        let trainUID = data.departures.all[0].train_uid
-        console.log(`train UID = ${trainUID}`)
-        //call API fri thst route and get depart and arrival times
-
-        // messageOne.textContent = data.departures.all[0].aimed_departure_time
-        // messageTwo.textContent = data.departures.all[0].aimed_arrival_time
-messageOne.textContent = data.departures.all[0].aimed_departure_time
-        messageTwo.textContent = data.departures.all[0].aimed_arrival_time
         
- master
-        console.log(data)
-    }
-})})
-}
-
 
 
 
