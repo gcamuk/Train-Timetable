@@ -50,7 +50,7 @@ console.log(`I'm client side JS`)
 const app_id = '10385ce7'
 const app_key = 'ff792051ed6e223340b30d3b25173108'
 
-let fromInput = document.getElementById('fromInput')
+let depStation = document.getElementById('fromInput')
 let fromButton = document.getElementById('fromButton')
 let toInput = document.getElementById('toInput')
 let toButton = document.getElementById('toButton')
