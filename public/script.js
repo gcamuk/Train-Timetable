@@ -69,7 +69,6 @@ const myFunction = () => {
                 messageFour.textContent = data.stops[finalDestination].aimed_arrival_time
 
                 messageFive.textContent = journeyTime
-                messageSix.textContent = "Fare"
 
                 console.log(`from = ${from} to = ${to} depart = ${data.stops[0].aimed_departure_time} arrive = ${data.stops[finalDestination].aimed_arrival_time}`)  
             } //end else
