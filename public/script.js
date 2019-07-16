@@ -50,13 +50,12 @@ console.log(`I'm client side JS`)
 const app_id = '10385ce7'
 const app_key = 'ff792051ed6e223340b30d3b25173108'
 
-let from = document.getElementById('depStation')
-let to = document.getElementById('ariStation')
-let date = document.getElementById('depDate')
-let time = document.getElementById('depTime')
+// let from = document.getElementById('depStation')
+// let to = document.getElementById('ariStation')
+// let date = document.getElementById('depDate')
+// let time = document.getElementById('depTime')
 
 const myFunction = () => {
-    //or resets the form before the vlaues are passed!
 
     let from = depStation.value
     let to = ariStation.value
@@ -69,6 +68,29 @@ const myFunction = () => {
     if (data.error) {
         messageOne.textContent = data.error
     } else {
+
+        let trainUID = data.departures.all[0].train_uid
+
+        fetch(`http://transportapi.com/v3/uk/train/service/train_uid:${trainUID}/${date}/timetable.json?app_id=${app_id}&app_key=${app_key}`)
+        .then(response => {response.json()
+        .then(data => {
+            if (data.error) {
+                messageOne.textContent = data.error
+            } else {
+                let finalDestination = data.stops.length-1
+                messageOne.textContent = data.origin_name
+                messageTwo.textContent = data.stops[0].aimed_departure_time
+                messageThree.textContent = data.destination_name
+                messageFour.textContent = data.stops[finalDestination].aimed_arrival_time
+                messageFive.textContent = "Journey Time"
+                messageSix.textContent = "Fare"
+                console.log(`from = ${from} to = ${to} depart = ${data.stops[0].aimed_departure_time} arrive = ${data.stops[finalDestination].aimed_arrival_time}`)  
+            } //end else
+        })})//end .then 2nd fetch
+    }//end else
+    })})//end .then 1st fetch
+}//end myFunction
+
 
         //get train UID
         let trainUID = data.departures.all[0].train_uid
@@ -88,6 +110,7 @@ messageOne.textContent = data.departures.all[0].aimed_departure_time
 
 
 
+
 //     fetch(`http://transportapi.com/v3/uk/train/station/${from}/${date}/${time}/timetable.json?app_id=${app_id}&app_key=${app_key}&destination=${to}`)
 //     .then(response => {response.json()
 //     .then(data => {
@@ -101,15 +124,15 @@ messageOne.textContent = data.departures.all[0].aimed_departure_time
 // })})
 
 
-    fetch(`http://api.brfares.com/querysimple?orig=${station_code_from}&dest=${station_code_to}`)
-    .then(response => {response.json()
-    .then(data => {
-        if (data.error) {
-            messageThree.textContent = data.error
-        } else {
-            messageThree.textContent = response.body.fares[0]
-        }
-    })})
+    // fetch(`http://api.brfares.com/querysimple?orig=${station_code_from}&dest=${station_code_to}`)
+    // .then(response => {response.json()
+    // .then(data => {
+    //     if (data.error) {
+    //         messageThree.textContent = data.error
+    //     } else {
+    //         messageThree.textContent = response.body.fares[0]
+    //     }
+    // })})
     
     
     
