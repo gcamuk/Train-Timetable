@@ -71,6 +71,7 @@ const myFunction = () => {
     } else {
         messageOne.textContent = data.departures.all[0].aimed_departure_time
         messageTwo.textContent = data.departures.all[0].aimed_arrival_time
+        
         console.log(data)
     }
 })})
