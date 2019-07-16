@@ -26,4 +26,5 @@ if (error) {
 console.log(response)
 })
 
+module.exports = trainFare
 

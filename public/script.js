@@ -7,7 +7,7 @@
 
 oList = oForm.elements["depart-station"]
 
-const getDepartStation (oList) => {
+const getDepartStation = (oList) => {
     let sdValues = []
     for (let i=1; i < oList.options.length; i++)
     {
