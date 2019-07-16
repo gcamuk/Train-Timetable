@@ -93,9 +93,6 @@ const myFunction = () => {
 
 
 
-
-
-
 //     fetch(`http://transportapi.com/v3/uk/train/station/${from}/${date}/${time}/timetable.json?app_id=${app_id}&app_key=${app_key}&destination=${to}`)
 //     .then(response => {response.json()
 //     .then(data => {
