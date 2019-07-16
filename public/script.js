@@ -79,6 +79,22 @@ findButton.addEventListener("click", (e) => {
 })})
 })
 
+    fetch(`http://api.brfares.com/querysimple?orig=${station_code_from}&dest=${station_code_to}`)
+    .then(response => {response.json()
+    .then(data => {
+        if (data.error) {
+            messageThree.textContent = data.error
+        } else {
+            messageThree.textContent = response.body.fares[0]
+        }
+    })})
+    
+    
+    
+
+    
+       
+
 
 // for runningh in browser to see json
 // http://transportapi.com/v3/uk/train/station/CTR/2019-07-15/13:00/timetable.json?app_id=10385ce7&app_key=ff792051ed6e223340b30d3b25173108&destination=EUS
