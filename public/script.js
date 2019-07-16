@@ -5,6 +5,13 @@ console.log(`I'm client side JS`)
 const app_id = '10385ce7'
 const app_key = 'ff792051ed6e223340b30d3b25173108'
 
+const getJourneyTime = (start, end) => {
+    let dt1 = new Date(start)
+    let dt2 = new Date(end)
+
+    console.log(`start ${start} end = ${end} dt1=${dt1} dt2=${dt2}`)
+}
+
 const myFunction = () => {
 
     let from = depStation.value
@@ -28,6 +35,8 @@ const myFunction = () => {
                 messageOne.textContent = data.error
             } else {
                 let finalDestination = data.stops.length-1
+                let journeyTime = getJourneyTime(data.stops[0].aimed_departure_time, data.stops[finalDestination].aimed_arrival_time)
+
                 messageOne.textContent = data.origin_name
                 messageTwo.textContent = data.stops[0].aimed_departure_time
                 messageThree.textContent = data.destination_name
