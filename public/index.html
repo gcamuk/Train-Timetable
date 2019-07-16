@@ -8,18 +8,11 @@
     <link rel="stylesheet" href="./main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <link href="./node_modules/bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet"> 
+
    
 </head>
 
 <body>
-
-    <!-- <div class="field">
-        <div class="control">
-            <input class="input is-large" type="text" placeholder="Large input">
-        </div>
-    </div> -->
-
 
     <section class="section">
         <div class="container">
@@ -32,8 +25,8 @@
                 <p class="subtitle is-5 search-head"><strong>Departing from?</strong></p>
                 <div class="control">
                     <div class="select">
-                        <select name="depart-station" id="dep-station">
-                            <option>Select your station</option>
+                        <select name="depart-station" id="dep-station" name="depstations">
+                            <option value="">Select your station</option>
                             <option value=" ABW	"> Abbey Wood </option>
                             <option value="	ABE	"> Aber </option>
                             <option value="	ACY	"> Abercynon </option>
@@ -2611,11 +2604,13 @@
         </div>
 
         <div id="calender" class="column">
+                <!-- <div class="field"> -->
                 <label class="subtitle is-7 search-head"><strong>Time:</strong></label>
                 <input type="time">
         
                 <label class="subtitle is-7 search-head"><strong>Date:</strong></label>
-                <input type="date">
+                <input type="date" id="depDate">
+                <!-- </div> -->
         </div>
 
         <div class="column dropsearch">
@@ -5203,17 +5198,21 @@
 
 
         <div id="calender" class="column">
+                <!-- <div class="field"> -->
             <label class="subtitle is-7 search-head"><strong>Time:</strong></label>
             <input type="time">
 
             <label class="subtitle is-7 search-head"><strong>Date:</strong></label>
-            <input type="date">
+            <input type="date" id="arrDate">
+                <!-- </div> -->
         </div>
 
-        <br>
-
-        <a class="button is-hovered submit is-outlined" type="submit"><span class="icon is-small buttonicon"><i class="fas fa-train"></i></span>Search Trains</a>
-        
+        <!-- <br> -->
+        <!-- <div class="field"> -->
+        <a class="button is-hovered submit is-outlined" type="submit" onclick="myFunction()"> 
+            <span class="icon is-small buttonicon"><i class="fas fa-train"></i></span>
+            Search Trains</a>
+        <!-- </div> -->
 
 
 
@@ -5223,10 +5222,10 @@
         </div>
          <!-- END OF CONTAINER -->
     </section>
-    <script src="./node_modules/bulma-calendar/dist/js/bulma-calendar.min.js"></script>           
 
-    <script src="./calender.js"></script> 
-    <script src="./public/index.js"></script>      
+    <!-- <script src="../calender.js"></script>  -->
+    <script src="../public/index.js"></script>    
+
 </body>
 
 </html>
