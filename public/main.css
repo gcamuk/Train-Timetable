@@ -66,3 +66,8 @@ border-top-style: dashed;
 h3 {
     font-weight: 700;
 }
+
+#error{
+color: white;
+font-weight: bold;
+}
