@@ -52,3 +52,17 @@ div p {
 .dropsearch {
     width: 80%;
 } 
+
+.results {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+
+justify-content: space-evenly;
+border-top: 2px;
+border-top-style: dashed;
+}
+
+h3 {
+    font-weight: 700;
+}

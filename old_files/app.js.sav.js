@@ -5,7 +5,7 @@ const express = require('express')
 const path = require('path')
 const port = process.env.PORT || 3006
 const app = express();
-const getFromTo = require('./getFromTo.js')
+const getFromTo = require('./getFromTo.js.js')
 const trainFare = require('./trainfare')
 
 //below hard coded for testing
