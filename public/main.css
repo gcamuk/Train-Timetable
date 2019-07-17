@@ -12,8 +12,9 @@
     height: 75vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: top;
     align-items: center;
+    padding-top: 15px;
     font-family: Verdana, Tahoma, sans-serif;
     background-color: cornflowerblue;
     border-radius: 20px;
@@ -54,20 +55,47 @@ div p {
 } 
 
 .results {
+width: 80%;
 display: flex;
-flex-direction: row;
+flex-direction: column;
 flex-wrap: wrap;
-
+color: white;
+font-weight: bold;
 justify-content: space-evenly;
 border-top: 2px;
 border-top-style: dashed;
+
+}
+
+.resultLabel {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+
+.timing {
+/* display: flex;
+flex-direction: column;
+align-items: baseline; */
 }
 
 h3 {
     font-weight: 700;
+    text-align: center;
+    color: black;
 }
 
 #error{
 color: white;
 font-weight: bold;
+}
+
+#depDate {
+    width: 100px;
+}
+
+#depTime {
+    width: 100px;
 }
