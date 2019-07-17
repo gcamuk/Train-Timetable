@@ -26,20 +26,6 @@ const myFunction = () => {
     let date = depDate.value
     let time = depTime.value
 
-    fetch(`http://api.brfares.com/querysimple?orig=${from}&dest=${to}`)
-    .then(response => {response.json()
-    .then(data => {
-        if (data.error) {
-            messageSix = data.error
-        } else {
-            function convert(sum){
-                return "£"+(sum / 100).toFixed(2);
-            }
-            messageSix.textContent = convert(data.fares[0].adult.fare);
-        }
-    })
-})
-
     fetch(`http://transportapi.com/v3/uk/train/station/${from}/${date}/${time}/timetable.json?app_id=${app_id}&app_key=${app_key}&destination=${to}`)
     .then(response => {response.json()
     .then(data => {
@@ -61,6 +47,20 @@ const myFunction = () => {
                 } else {
                     let finalDestination = data.stops.length-1
                     let journeyTime = getJourneyTime(`${date} ${data.stops[0].aimed_departure_time}`, `${date} ${data.stops[finalDestination].aimed_arrival_time}`)
+                    
+                    //get fares if a route can be found 
+                    fetch(`http://api.brfares.com/querysimple?orig=${from}&dest=${to}`)
+                    .then(response => {response.json()
+                    .then(data => {
+                        if (data.error) {
+                            messageSix = data.error
+                        } else {
+                            function convert(sum){
+                                return "£"+(sum / 100).toFixed(2);
+                            }
+                            messageSix.textContent = convert(data.fares[0].adult.fare);
+                        }
+                    })})//end fetch for fares
 
                     messageOne.textContent = data.stops[0].station_name
                     messageTwo.textContent = data.stops[0].aimed_departure_time
@@ -75,5 +75,5 @@ const myFunction = () => {
     })})//end .then 1st fetch
 }//end myFunction
 
-// for runningh in browser to see json
+// for running in browser to see json
 // http://transportapi.com/v3/uk/train/station/CTR/2019-07-15/13:00/timetable.json?app_id=10385ce7&app_key=ff792051ed6e223340b30d3b25173108&destination=EUS
