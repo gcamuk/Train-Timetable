@@ -21,6 +21,14 @@ const getJourneyTime = (start, end) => {
 
 const myFunction = () => {
 
+    //clear form
+    messageOne.textContent = ""
+    messageTwo.textContent = ""
+    messageThree.textContent = ""
+    messageFour.textContent = ""
+    messageFive.textContent = ""
+    error.textContent =""
+
     let from = depStation.value
     let to = ariStation.value
     let date = depDate.value
