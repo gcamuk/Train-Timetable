@@ -62,8 +62,8 @@ flex-wrap: wrap;
 color: white;
 font-weight: bold;
 justify-content: space-evenly;
-border-top: 2px;
-border-top-style: dashed;
+/* border-top: 2px;
+border-top-style: dashed; */
 
 }
 
