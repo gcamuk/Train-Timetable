@@ -43,37 +43,35 @@ const myFunction = () => {
     fetch(`http://transportapi.com/v3/uk/train/station/${from}/${date}/${time}/timetable.json?app_id=${app_id}&app_key=${app_key}&destination=${to}`)
     .then(response => {response.json()
     .then(data => {
-        console.log(`bruce is late`)
-
-        console.log(`error ${data.departures.all[0].train_uid} ${data.error}`)
-    if (data.error || !data.departures.all[0].train_uid) {
+    if (data.error) {
         console.log('error')
         messageOne.textContent = data.error
-        // return (messageOne.textContent = "No services bewtween your chosen stations")
     } else {
+        //check for no route (which does not return an error)
+        if (data.departures.all.length == 0) {
+            error.textContent = "There are no routes available"
+        } else {
+            let trainUID = data.departures.all[0].train_uid;
 
-        let trainUID = data.departures.all[0].train_uid;
+            fetch(`http://transportapi.com/v3/uk/train/service/train_uid:${trainUID}/${date}/timetable.json?app_id=${app_id}&app_key=${app_key}`)
+            .then(response => {response.json()
+            .then(data => {
+                if (data.error) {
+                    return (messageOne.textContent = data.error)
+                } else {
+                    let finalDestination = data.stops.length-1
+                    let journeyTime = getJourneyTime(`${date} ${data.stops[0].aimed_departure_time}`, `${date} ${data.stops[finalDestination].aimed_arrival_time}`)
 
-        fetch(`http://transportapi.com/v3/uk/train/service/train_uid:${trainUID}/${date}/timetable.json?app_id=${app_id}&app_key=${app_key}`)
-        .then(response => {response.json()
-        .then(data => {
-            if (data.error) {
-                return (messageOne.textContent = data.error)
-            } else {
-                let finalDestination = data.stops.length-1
-                let journeyTime = getJourneyTime(`${date} ${data.stops[0].aimed_departure_time}`, `${date} ${data.stops[finalDestination].aimed_arrival_time}`)
-
-                messageOne.textContent = data.stops[0].station_name
-                messageTwo.textContent = data.stops[0].aimed_departure_time
-                messageThree.textContent = data.destination_name
-                messageFour.textContent = data.stops[finalDestination].aimed_arrival_time
-
-                messageFive.textContent = journeyTime
-
-                console.log(`from = ${from} to = ${to} depart = ${data.stops[0].aimed_departure_time} arrive = ${data.stops[finalDestination].aimed_arrival_time}`)  
-            } //end else
-        })})//end .then 2nd fetch
-    }//end else
+                    messageOne.textContent = data.stops[0].station_name
+                    messageTwo.textContent = data.stops[0].aimed_departure_time
+                    messageThree.textContent = data.destination_name
+                    messageFour.textContent = data.stops[finalDestination].aimed_arrival_time
+                    messageFive.textContent = journeyTime
+                    console.log(`from = ${from} to = ${to} depart = ${data.stops[0].aimed_departure_time} arrive = ${data.stops[finalDestination].aimed_arrival_time}`)  
+                } //end else
+            })})//end .then 2nd fetch
+        }//end else
+    } //end else
     })})//end .then 1st fetch
 }//end myFunction
 
