@@ -27,6 +27,7 @@ const myFunction = () => {
     messageThree.textContent = ""
     messageFour.textContent = ""
     messageFive.textContent = ""
+    messageSix.textContent = ""
     error.textContent =""
 
     let from = depStation.value
